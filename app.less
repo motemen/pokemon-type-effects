@@ -1,6 +1,27 @@
 @import 'components/bootstrap/less/variables.less';
 @import 'components/bootstrap/less/mixins.less';
 
+@color-normal:   #C5C0A6;
+@color-grass:    #A5D839;
+@color-fire:     #EE4E32;
+@color-water:    #71AAFF;
+@color-fighting: #B85F3B;
+@color-flying:   #88A6FF;
+@color-poison:   #A75D9D;
+@color-ground:   #F3CE42;
+@color-rock:     #D8BB67;
+@color-bug:      #CCD700;
+@color-ghost:    #8379D0;
+@color-electric: #FAE528;
+@color-psychic:  #E762AF;
+@color-ice:      #B0EDFC;
+@color-dragon:   #8B71FF;
+@color-dark:     #8C6B48;
+@color-steel:    #C9C1C9;
+@color-fairy:    #F2A9F6;
+
+@type-names: normal, grass, fire, water, fighting, flying, poison, ground, rock, bug, ghost, electric, psychic, ice, dragon, dark, steel, fairy;
+
 body {
     .container-fixed;
 }
@@ -17,6 +38,24 @@ body {
 #effects {
     .make-row;
     .clearfix;
+
+    .type {
+        border-left: 10px solid;
+        padding-left: 10px;
+
+        .loop (@i) when (@i < length(@type-names)) {
+            @type-name: extract(@type-names, @i+1);
+
+            &-@{type-name} {
+                @color-name: "color-@{type-name}";
+                border-color: @@color-name;
+            }
+
+            .loop(@i+1);
+        }
+
+        .loop (0);
+    }
 }
 
 .type-selector {
@@ -39,5 +78,20 @@ body {
         width: 30%;
         display: block;
         float: left;
+
+        text-shadow: 1px 1px 0 white;
+
+        .loop (@i) when (@i < length(@type-names)) {
+            @type-name: extract(@type-names, @i+1);
+
+            &-@{type-name} {
+                @color-name: "color-@{type-name}";
+                background-color: @@color-name;
+            }
+
+            .loop(@i+1);
+        }
+
+        .loop (0);
     }
 }

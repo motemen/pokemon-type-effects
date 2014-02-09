@@ -17,7 +17,7 @@
     <section id="effects">
       <ul>
         <li ng-repeat="te in allEffects()" ng-if="te.effect !== 1">
-          <span class="type">{{te.typeName}}</span>
+        <span class="type type-{{te.typeName}}">{{te.typeName}}</span>
           <span class="effect">{{te.effect}}</span>
         </li>
       </ul>
