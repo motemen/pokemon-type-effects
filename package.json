@@ -1,0 +1,13 @@
+{
+  "name": "pokemon-type-effects",
+  "devDependencies": {
+    "phantomjs": "~1.9",
+    "karma": "~0.10",
+    "karma-junit-reporter": "~0.1",
+    "karma-jasmine": "~0.1",
+    "protractor": "~0.17.0",
+    "gulp": "~3.5.2",
+    "gulp-util": "~2.2.14",
+    "gulp-less": "~1.2.1"
+  }
+}

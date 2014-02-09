@@ -1,0 +1,43 @@
+@import 'components/bootstrap/less/variables.less';
+@import 'components/bootstrap/less/mixins.less';
+
+body {
+    .container-fixed;
+}
+
+#defender {
+    .make-row;
+    .clearfix;
+
+    .type-selector {
+        .make-md-column(6);
+    }
+}
+
+#effects {
+    .make-row;
+    .clearfix;
+}
+
+.type-selector {
+    .type-selector-button {
+        cursor: pointer;
+    }
+}
+
+.type-selector-palette {
+    position: fixed;
+    top: 10%;
+    left: 25%;
+    height: 80%;
+    width: 50%;
+    background: white;
+
+    .type {
+        padding: 0.2em;
+        cursor: pointer;
+        width: 30%;
+        display: block;
+        float: left;
+    }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="pokemonTypeEffectsApp">
+<head>
+  <meta charset="utf-8">
+  <title>Pokemon Type Effects</title>
+  <script src="components/angular-1.2.12/angular.js"></script>
+  <script src="js/app.js"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div ng-controller="MainCtrl">
+    <section id="defender">
+      <div id="defender-types">
+        <pokemon-type-selector ng-repeat="i in [0,1]" selected-type="defenderTypes[i]"></pokemon-type-selector>
+      </div>
+    </section>
+    <section id="effects">
+      <ul>
+        <li ng-repeat="te in allEffects()" ng-if="te.effect !== 1">
+          <span class="type">{{te.typeName}}</span>
+          <span class="effect">{{te.effect}}</span>
+        </li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
