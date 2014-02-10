@@ -39,19 +39,23 @@ body {
     }
 
     div[pokemon-type-selector] {
-        .make-md-column(3);
+        .make-md-column(4);
     }
+}
+
+section + section h3 {
+    margin-top: 1.5em;
 }
 
 #effects {
     ul {
-        margin-left: 0;
+        .make-row;
     }
 
     li {
         padding: 10px;
         list-style: none;
-        width: 30%;
+        .make-md-column(7);
     }
 
     .type {
