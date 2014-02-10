@@ -1,6 +1,3 @@
 <div class="type-selector">
   <div class="type-selector-button type type-{{selectedType || 'undefined'}}" ng-click="togglePalette()">{{selectedType || '-'}}</div>
-  <div class="type-selector-palette" ng-show="showPalette">
-    <span class="type type-{{typeName}}" ng-repeat="typeName in allTypes" ng-click="selectType(typeName)">{{typeName}}</span>
-  </div>
 </div>

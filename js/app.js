@@ -1,4 +1,4 @@
-var pokemonTypeEffectsApp = angular.module('pokemonTypeEffectsApp', []);
+var pokemonTypeEffectsApp = angular.module('pokemonTypeEffectsApp', [ 'ui.bootstrap' ]);
 
 var ALL_TYPE_NAMES = [
     'normal',
@@ -92,17 +92,28 @@ pokemonTypeEffectsApp.controller('MainCtrl', [ '$scope', 'typeEffectsCalculator'
     }
 ]);
 
-pokemonTypeEffectsApp.directive('pokemonTypeSelector', function () {
+pokemonTypeEffectsApp.controller('TypeSelectorCtrl', [ '$scope', '$modalInstance',
+    function ($scope, $modalInstance) {
+        $scope.allTypes = ALL_TYPE_NAMES;
+        $scope.selectType = function (typeName) {
+            $modalInstance.close(typeName);
+        };
+    }
+]);
+
+pokemonTypeEffectsApp.directive('pokemonTypeSelector', function ($modal) {
     function link (scope, element, attr) {
         scope.allTypes = ALL_TYPE_NAMES;
 
         scope.togglePalette = function () {
-            scope.showPalette = !scope.showPalette;
-        };
+            var typeSelectorModalInstance = $modal.open({
+                templateUrl: '_type_palette.html',
+                controller: 'TypeSelectorCtrl'
+            });
 
-        scope.selectType = function (typeName) {
-            scope.selectedType = typeName;
-            scope.togglePalette();
+            typeSelectorModalInstance.result.then(function (typeName) {
+                scope.selectedType = typeName;
+            });
         };
     };
 

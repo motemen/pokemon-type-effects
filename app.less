@@ -28,7 +28,7 @@
 body {
     .container-fixed;
 
-    font-family: Verdana;
+    font-family: Verdana, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -85,7 +85,7 @@ body {
     }
 }
 
-.type-selector {
+.type-selector, .type-selector-palette {
     .type-selector-button {
         cursor: pointer;
     }
@@ -118,17 +118,10 @@ body {
 }
 
 .type-selector-palette {
-    position: fixed;
-    top: 10%;
-    left: 25%;
-    height: 80%;
-    width: 50%;
-    background: white;
-
-    z-index: 100;
+    .make-row;
+    .clearfix;
 
     .type {
-        float: left;
-        width: 30%;
+        .make-md-column(4);
     }
 }

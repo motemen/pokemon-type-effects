@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokemon Type Effects</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+  <script src="components/ui-bootstrap-0.10.0.js"></script>
+  <script src="components/ui-bootstrap-tpls-0.10.0.js"></script>
   <script src="js/app.js"></script>
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="app.css">
@@ -12,17 +14,17 @@
 <body>
   <div ng-controller="MainCtrl">
     <section id="defender">
-      <h1>Defender types</h1>
+      <h3>Select enemy pokemon types</h3>
       <div id="defender-types">
         <div pokemon-type-selector ng-repeat="i in [0,1]" selected-type="defenderTypes[i]"></div>
       </div>
     </section>
     <section id="effects">
-      <h1>Effects</h1>
+      <h3>Attack effectiveness of each types</h3>
       <ul>
         <li ng-repeat="te in allEffects()" ng-if="te.effect !== 1" class="type type-{{te.typeName}}">
           <span class="type-name">{{te.typeName}}</span>
-          <span class="effect">×{{te.effect | numberAsEffect}}</span>
+          <span class="effect">&#x00D7; {{te.effect | numberAsEffect}}</span>
         </li>
       </ul>
     </section>
