@@ -20,7 +20,10 @@
 @color-steel:    #C9C1C9;
 @color-fairy:    #F2A9F6;
 
+@color-undefined:     #DDD;
+
 @type-names: normal, grass, fire, water, fighting, flying, poison, ground, rock, bug, ghost, electric, psychic, ice, dragon, dark, steel, fairy;
+@type-names-with-undefined: normal, grass, fire, water, fighting, flying, poison, ground, rock, bug, ghost, electric, psychic, ice, dragon, dark, steel, fairy, undefined;
 
 body {
     .container-fixed;
@@ -36,11 +39,15 @@ body {
     }
 
     div[pokemon-type-selector] {
-        .make-md-column(4);
+        .make-md-column(3);
     }
 }
 
 #effects {
+    ul {
+        margin-left: 0;
+    }
+
     li {
         padding: 10px;
         list-style: none;
@@ -90,8 +97,8 @@ body {
 
         text-shadow: 1px 1px 0 #DDD;
 
-        .loop (@i) when (@i < length(@type-names)) {
-            @type-name: extract(@type-names, @i+1);
+        .loop (@i) when (@i < length(@type-names-with-undefined)) {
+            @type-name: extract(@type-names-with-undefined, @i+1);
 
             &-@{type-name} {
                 @color-name: "color-@{type-name}";
