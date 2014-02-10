@@ -114,3 +114,15 @@ pokemonTypeEffectsApp.directive('pokemonTypeSelector', function () {
         link: link
     };
 });
+
+pokemonTypeEffectsApp.filter('numberAsEffect', function () {
+    return function (number) {
+        if (number === 0.25) {
+            return '\u00BC';
+        } else if (number === 0.5) {
+            return '\u00BD'
+        } else {
+            return number;
+        }
+    };
+});
