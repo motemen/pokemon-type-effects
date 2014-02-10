@@ -1,0 +1,344 @@
+body {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-family: Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+#defender #defender-types {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+#defender #defender-types:before,
+#defender #defender-types:after {
+  content: " ";
+  display: table;
+}
+#defender #defender-types:after {
+  clear: both;
+}
+#defender div[pokemon-type-selector] {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  #defender div[pokemon-type-selector] {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+section + section h3 {
+  margin-top: 1.5em;
+}
+#effects ul {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+#effects li {
+  padding: 10px;
+  list-style: none;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  #effects li {
+    float: left;
+    width: 58.33333333%;
+  }
+}
+#effects .type {
+  border-left: 10px solid;
+}
+#effects .type-normal {
+  border-color: #c5c0a6;
+  background-color: #f1f0ea;
+}
+#effects .type-grass {
+  border-color: #a5d839;
+  background-color: #d0ea97;
+}
+#effects .type-fire {
+  border-color: #ee4e32;
+  background-color: #f7a79a;
+}
+#effects .type-water {
+  border-color: #71aaff;
+  background-color: #e1edff;
+}
+#effects .type-fighting {
+  border-color: #b85f3b;
+  background-color: #d9a18a;
+}
+#effects .type-flying {
+  border-color: #88a6ff;
+  background-color: #f8faff;
+}
+#effects .type-poison {
+  border-color: #a75d9d;
+  background-color: #cea6c9;
+}
+#effects .type-ground {
+  border-color: #f3ce42;
+  background-color: #fae9ac;
+}
+#effects .type-rock {
+  border-color: #d8bb67;
+  background-color: #efe3c0;
+}
+#effects .type-bug {
+  border-color: #ccd700;
+  background-color: #f6ff48;
+}
+#effects .type-ghost {
+  border-color: #8379d0;
+  background-color: #d0cced;
+}
+#effects .type-electric {
+  border-color: #fae528;
+  background-color: #fdf296;
+}
+#effects .type-psychic {
+  border-color: #e762af;
+  background-color: #f6c3e1;
+}
+#effects .type-ice {
+  border-color: #b0edfc;
+  background-color: #ffffff;
+}
+#effects .type-dragon {
+  border-color: #8b71ff;
+  background-color: #e7e1ff;
+}
+#effects .type-dark {
+  border-color: #8c6b48;
+  background-color: #c0a384;
+}
+#effects .type-steel {
+  border-color: #c9c1c9;
+  background-color: #fdfdfd;
+}
+#effects .type-fairy {
+  border-color: #f2a9f6;
+  background-color: #ffffff;
+}
+#effects .type-name {
+  font-weight: bold;
+}
+#effects li {
+  position: relative;
+}
+#effects li .effect {
+  position: absolute;
+  left: 85%;
+}
+.type-selector .type-selector-button,
+.type-selector-palette .type-selector-button {
+  cursor: pointer;
+}
+.type-selector .type,
+.type-selector-palette .type {
+  padding: 0.4em;
+  cursor: pointer;
+  display: block;
+  text-shadow: 1px 1px 0 #DDD;
+}
+.type-selector .type-normal,
+.type-selector-palette .type-normal {
+  background-color: #d9d6c5;
+  border: 5px solid #c5c0a6;
+}
+.type-selector .type-normal:hover,
+.type-selector-palette .type-normal:hover {
+  background-color: #cfcbb5;
+}
+.type-selector .type-grass,
+.type-selector-palette .type-grass {
+  background-color: #b8e064;
+  border: 5px solid #a5d839;
+}
+.type-selector .type-grass:hover,
+.type-selector-palette .type-grass:hover {
+  background-color: #afdc4e;
+}
+.type-selector .type-fire,
+.type-selector-palette .type-fire {
+  background-color: #f27761;
+  border: 5px solid #ee4e32;
+}
+.type-selector .type-fire:hover,
+.type-selector-palette .type-fire:hover {
+  background-color: #f0624a;
+}
+.type-selector .type-water,
+.type-selector-palette .type-water {
+  background-color: #a4c9ff;
+  border: 5px solid #71aaff;
+}
+.type-selector .type-water:hover,
+.type-selector-palette .type-water:hover {
+  background-color: #8bb9ff;
+}
+.type-selector .type-fighting,
+.type-selector-palette .type-fighting {
+  background-color: #cb7b5b;
+  border: 5px solid #b85f3b;
+}
+.type-selector .type-fighting:hover,
+.type-selector-palette .type-fighting:hover {
+  background-color: #c46c48;
+}
+.type-selector .type-flying,
+.type-selector-palette .type-flying {
+  background-color: #bbccff;
+  border: 5px solid #88a6ff;
+}
+.type-selector .type-flying:hover,
+.type-selector-palette .type-flying:hover {
+  background-color: #a2b9ff;
+}
+.type-selector .type-poison,
+.type-selector-palette .type-poison {
+  background-color: #b97eb1;
+  border: 5px solid #a75d9d;
+}
+.type-selector .type-poison:hover,
+.type-selector-palette .type-poison:hover {
+  background-color: #b06ea7;
+}
+.type-selector .type-ground,
+.type-selector-palette .type-ground {
+  background-color: #f6da72;
+  border: 5px solid #f3ce42;
+}
+.type-selector .type-ground:hover,
+.type-selector-palette .type-ground:hover {
+  background-color: #f5d45a;
+}
+.type-selector .type-rock,
+.type-selector-palette .type-rock {
+  background-color: #e2cd90;
+  border: 5px solid #d8bb67;
+}
+.type-selector .type-rock:hover,
+.type-selector-palette .type-rock:hover {
+  background-color: #ddc47b;
+}
+.type-selector .type-bug,
+.type-selector-palette .type-bug {
+  background-color: #f3ff0b;
+  border: 5px solid #ccd700;
+}
+.type-selector .type-bug:hover,
+.type-selector-palette .type-bug:hover {
+  background-color: #e4f100;
+}
+.type-selector .type-ghost,
+.type-selector-palette .type-ghost {
+  background-color: #a69fdd;
+  border: 5px solid #8379d0;
+}
+.type-selector .type-ghost:hover,
+.type-selector-palette .type-ghost:hover {
+  background-color: #948cd7;
+}
+.type-selector .type-electric,
+.type-selector-palette .type-electric {
+  background-color: #fbeb5a;
+  border: 5px solid #fae528;
+}
+.type-selector .type-electric:hover,
+.type-selector-palette .type-electric:hover {
+  background-color: #fbe841;
+}
+.type-selector .type-psychic,
+.type-selector-palette .type-psychic {
+  background-color: #ee8ec6;
+  border: 5px solid #e762af;
+}
+.type-selector .type-psychic:hover,
+.type-selector-palette .type-psychic:hover {
+  background-color: #ea78ba;
+}
+.type-selector .type-ice,
+.type-selector-palette .type-ice {
+  background-color: #e1f8fe;
+  border: 5px solid #b0edfc;
+}
+.type-selector .type-ice:hover,
+.type-selector-palette .type-ice:hover {
+  background-color: #c9f3fd;
+}
+.type-selector .type-dragon,
+.type-selector-palette .type-dragon {
+  background-color: #b5a4ff;
+  border: 5px solid #8b71ff;
+}
+.type-selector .type-dragon:hover,
+.type-selector-palette .type-dragon:hover {
+  background-color: #a08bff;
+}
+.type-selector .type-dark,
+.type-selector-palette .type-dark {
+  background-color: #ab855c;
+  border: 5px solid #8c6b48;
+}
+.type-selector .type-dark:hover,
+.type-selector-palette .type-dark:hover {
+  background-color: #9d7851;
+}
+.type-selector .type-steel,
+.type-selector-palette .type-steel {
+  background-color: #e1dce1;
+  border: 5px solid #c9c1c9;
+}
+.type-selector .type-steel:hover,
+.type-selector-palette .type-steel:hover {
+  background-color: #d5cfd5;
+}
+.type-selector .type-fairy,
+.type-selector-palette .type-fairy {
+  background-color: #f9d7fb;
+  border: 5px solid #f2a9f6;
+}
+.type-selector .type-fairy:hover,
+.type-selector-palette .type-fairy:hover {
+  background-color: #f5c0f8;
+}
+.type-selector .type-undefined,
+.type-selector-palette .type-undefined {
+  background-color: #f7f7f7;
+  border: 5px solid #dddddd;
+}
+.type-selector .type-undefined:hover,
+.type-selector-palette .type-undefined:hover {
+  background-color: #eaeaea;
+}
+.type-selector-palette {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.type-selector-palette:before,
+.type-selector-palette:after {
+  content: " ";
+  display: table;
+}
+.type-selector-palette:after {
+  clear: both;
+}
+.type-selector-palette .type {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  .type-selector-palette .type {
+    float: left;
+    width: 33.33333333%;
+  }
+}
