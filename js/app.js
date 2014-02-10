@@ -110,7 +110,6 @@ pokemonTypeEffectsApp.directive('pokemonTypeSelector', function () {
         scope: {
             selectedType: '='
         },
-        restrict: 'E',
         templateUrl: '_type_selector.html',
         link: link
     };

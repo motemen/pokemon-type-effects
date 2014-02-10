@@ -10,14 +10,16 @@
 <body>
   <div ng-controller="MainCtrl">
     <section id="defender">
+      <p>Defender types:</p>
       <div id="defender-types">
-        <pokemon-type-selector ng-repeat="i in [0,1]" selected-type="defenderTypes[i]"></pokemon-type-selector>
+        <div pokemon-type-selector ng-repeat="i in [0,1]" selected-type="defenderTypes[i]"></div>
       </div>
     </section>
     <section id="effects">
+      <p>Move effects:</p>
       <ul>
-        <li ng-repeat="te in allEffects()" ng-if="te.effect !== 1">
-        <span class="type type-{{te.typeName}}">{{te.typeName}}</span>
+        <li ng-repeat="te in allEffects()" ng-if="te.effect !== 1" class="type type-{{te.typeName}}">
+          <span class="type-name">{{te.typeName}}</span>
           <span class="effect">{{te.effect}}</span>
         </li>
       </ul>

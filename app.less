@@ -24,24 +24,31 @@
 
 body {
     .container-fixed;
+
+    font-family: Verdana;
+    -webkit-font-smoothing: antialiased;
 }
 
 #defender {
-    .make-row;
-    .clearfix;
+    #defender-types {
+        .make-row;
+        .clearfix;
+    }
 
-    .type-selector {
-        .make-md-column(6);
+    div[pokemon-type-selector] {
+        .make-md-column(4);
     }
 }
 
 #effects {
-    .make-row;
-    .clearfix;
+    li {
+        padding: 10px;
+        list-style: none;
+        width: 30%;
+    }
 
     .type {
         border-left: 10px solid;
-        padding-left: 10px;
 
         .loop (@i) when (@i < length(@type-names)) {
             @type-name: extract(@type-names, @i+1);
@@ -49,6 +56,7 @@ body {
             &-@{type-name} {
                 @color-name: "color-@{type-name}";
                 border-color: @@color-name;
+                background-color: lighten(@@color-name, 22%);
             }
 
             .loop(@i+1);
@@ -56,11 +64,49 @@ body {
 
         .loop (0);
     }
+
+    .type-name {
+        font-weight: bold;
+    }
+
+    li {
+        position: relative;
+        .effect {
+            position: absolute;
+            right: 20px;
+        }
+    }
 }
 
 .type-selector {
     .type-selector-button {
         cursor: pointer;
+    }
+
+    .type {
+        padding: 0.4em;
+        cursor: pointer;
+        display: block;
+
+        text-shadow: 1px 1px 0 #DDD;
+
+        .loop (@i) when (@i < length(@type-names)) {
+            @type-name: extract(@type-names, @i+1);
+
+            &-@{type-name} {
+                @color-name: "color-@{type-name}";
+                background-color: lighten(@@color-name, 10%);
+                border: 5px solid darken(@@color-name, 0%);
+
+                &:hover {
+                    background-color: lighten(@@color-name, 5%);
+                }
+            }
+
+            .loop(@i+1);
+        }
+
+        .loop (0);
     }
 }
 
@@ -72,26 +118,10 @@ body {
     width: 50%;
     background: white;
 
+    z-index: 100;
+
     .type {
-        padding: 0.2em;
-        cursor: pointer;
-        width: 30%;
-        display: block;
         float: left;
-
-        text-shadow: 1px 1px 0 white;
-
-        .loop (@i) when (@i < length(@type-names)) {
-            @type-name: extract(@type-names, @i+1);
-
-            &-@{type-name} {
-                @color-name: "color-@{type-name}";
-                background-color: @@color-name;
-            }
-
-            .loop(@i+1);
-        }
-
-        .loop (0);
+        width: 30%;
     }
 }
