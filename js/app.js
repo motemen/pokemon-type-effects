@@ -89,6 +89,9 @@ pokemonTypeEffectsApp.controller('MainCtrl', [ '$scope', 'typeEffectsCalculator'
         $scope.allEffects = function () {
             return typeEffectsCalculator.calcEffects($scope.defenderTypes)
         };
+        $scope.$watch('defenderTypes[0]', function () {
+            $scope.defenderTypes[1] = undefined;
+        });
     }
 ]);
 
