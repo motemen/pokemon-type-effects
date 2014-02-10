@@ -110,7 +110,7 @@ pokemonTypeEffectsApp.directive('pokemonTypeSelector', function ($modal) {
 
         scope.togglePalette = function () {
             var typeSelectorModalInstance = $modal.open({
-                templateUrl: '_type_palette.html',
+                templateUrl: 'type_palette.html',
                 controller: 'TypeSelectorCtrl'
             });
 
@@ -124,7 +124,7 @@ pokemonTypeEffectsApp.directive('pokemonTypeSelector', function ($modal) {
         scope: {
             selectedType: '='
         },
-        templateUrl: '_type_selector.html',
+        templateUrl: 'type_selector.html',
         link: link
     };
 });
