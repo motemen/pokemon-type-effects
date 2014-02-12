@@ -94,6 +94,13 @@ section + section h3 {
         cursor: pointer;
     }
 
+    .type-mark {
+        border-radius: 50%;
+        height: 2em;
+        width: 2em;
+        display: inline-block;
+    }
+
     .type {
         padding: 0.4em;
         cursor: pointer;
@@ -109,7 +116,7 @@ section + section h3 {
                 background-color: lighten(@@color-name, 10%);
                 border: 5px solid darken(@@color-name, 0%);
 
-                &:hover {
+                &:hover, .type:hover & {
                     background-color: lighten(@@color-name, 5%);
                 }
             }
@@ -124,6 +131,8 @@ section + section h3 {
 .type-selector-palette {
     .make-row;
     .clearfix;
+
+    padding: 1em;
 
     .type {
         .make-md-column(4);
