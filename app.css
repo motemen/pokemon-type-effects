@@ -140,6 +140,13 @@ section + section h3 {
 .type-selector-palette .type-selector-button {
   cursor: pointer;
 }
+.type-selector .type-mark,
+.type-selector-palette .type-mark {
+  border-radius: 50%;
+  height: 2em;
+  width: 2em;
+  display: inline-block;
+}
 .type-selector .type,
 .type-selector-palette .type {
   padding: 0.4em;
@@ -153,7 +160,9 @@ section + section h3 {
   border: 5px solid #c5c0a6;
 }
 .type-selector .type-normal:hover,
-.type-selector-palette .type-normal:hover {
+.type-selector-palette .type-normal:hover,
+.type:hover .type-selector .type-normal,
+.type:hover .type-selector-palette .type-normal {
   background-color: #cfcbb5;
 }
 .type-selector .type-grass,
@@ -162,7 +171,9 @@ section + section h3 {
   border: 5px solid #a5d839;
 }
 .type-selector .type-grass:hover,
-.type-selector-palette .type-grass:hover {
+.type-selector-palette .type-grass:hover,
+.type:hover .type-selector .type-grass,
+.type:hover .type-selector-palette .type-grass {
   background-color: #afdc4e;
 }
 .type-selector .type-fire,
@@ -171,7 +182,9 @@ section + section h3 {
   border: 5px solid #ee4e32;
 }
 .type-selector .type-fire:hover,
-.type-selector-palette .type-fire:hover {
+.type-selector-palette .type-fire:hover,
+.type:hover .type-selector .type-fire,
+.type:hover .type-selector-palette .type-fire {
   background-color: #f0624a;
 }
 .type-selector .type-water,
@@ -180,7 +193,9 @@ section + section h3 {
   border: 5px solid #71aaff;
 }
 .type-selector .type-water:hover,
-.type-selector-palette .type-water:hover {
+.type-selector-palette .type-water:hover,
+.type:hover .type-selector .type-water,
+.type:hover .type-selector-palette .type-water {
   background-color: #8bb9ff;
 }
 .type-selector .type-fighting,
@@ -189,7 +204,9 @@ section + section h3 {
   border: 5px solid #b85f3b;
 }
 .type-selector .type-fighting:hover,
-.type-selector-palette .type-fighting:hover {
+.type-selector-palette .type-fighting:hover,
+.type:hover .type-selector .type-fighting,
+.type:hover .type-selector-palette .type-fighting {
   background-color: #c46c48;
 }
 .type-selector .type-flying,
@@ -198,7 +215,9 @@ section + section h3 {
   border: 5px solid #88a6ff;
 }
 .type-selector .type-flying:hover,
-.type-selector-palette .type-flying:hover {
+.type-selector-palette .type-flying:hover,
+.type:hover .type-selector .type-flying,
+.type:hover .type-selector-palette .type-flying {
   background-color: #a2b9ff;
 }
 .type-selector .type-poison,
@@ -207,7 +226,9 @@ section + section h3 {
   border: 5px solid #a75d9d;
 }
 .type-selector .type-poison:hover,
-.type-selector-palette .type-poison:hover {
+.type-selector-palette .type-poison:hover,
+.type:hover .type-selector .type-poison,
+.type:hover .type-selector-palette .type-poison {
   background-color: #b06ea7;
 }
 .type-selector .type-ground,
@@ -216,7 +237,9 @@ section + section h3 {
   border: 5px solid #f3ce42;
 }
 .type-selector .type-ground:hover,
-.type-selector-palette .type-ground:hover {
+.type-selector-palette .type-ground:hover,
+.type:hover .type-selector .type-ground,
+.type:hover .type-selector-palette .type-ground {
   background-color: #f5d45a;
 }
 .type-selector .type-rock,
@@ -225,7 +248,9 @@ section + section h3 {
   border: 5px solid #d8bb67;
 }
 .type-selector .type-rock:hover,
-.type-selector-palette .type-rock:hover {
+.type-selector-palette .type-rock:hover,
+.type:hover .type-selector .type-rock,
+.type:hover .type-selector-palette .type-rock {
   background-color: #ddc47b;
 }
 .type-selector .type-bug,
@@ -234,7 +259,9 @@ section + section h3 {
   border: 5px solid #ccd700;
 }
 .type-selector .type-bug:hover,
-.type-selector-palette .type-bug:hover {
+.type-selector-palette .type-bug:hover,
+.type:hover .type-selector .type-bug,
+.type:hover .type-selector-palette .type-bug {
   background-color: #e4f100;
 }
 .type-selector .type-ghost,
@@ -243,7 +270,9 @@ section + section h3 {
   border: 5px solid #8379d0;
 }
 .type-selector .type-ghost:hover,
-.type-selector-palette .type-ghost:hover {
+.type-selector-palette .type-ghost:hover,
+.type:hover .type-selector .type-ghost,
+.type:hover .type-selector-palette .type-ghost {
   background-color: #948cd7;
 }
 .type-selector .type-electric,
@@ -252,7 +281,9 @@ section + section h3 {
   border: 5px solid #fae528;
 }
 .type-selector .type-electric:hover,
-.type-selector-palette .type-electric:hover {
+.type-selector-palette .type-electric:hover,
+.type:hover .type-selector .type-electric,
+.type:hover .type-selector-palette .type-electric {
   background-color: #fbe841;
 }
 .type-selector .type-psychic,
@@ -261,7 +292,9 @@ section + section h3 {
   border: 5px solid #e762af;
 }
 .type-selector .type-psychic:hover,
-.type-selector-palette .type-psychic:hover {
+.type-selector-palette .type-psychic:hover,
+.type:hover .type-selector .type-psychic,
+.type:hover .type-selector-palette .type-psychic {
   background-color: #ea78ba;
 }
 .type-selector .type-ice,
@@ -270,7 +303,9 @@ section + section h3 {
   border: 5px solid #b0edfc;
 }
 .type-selector .type-ice:hover,
-.type-selector-palette .type-ice:hover {
+.type-selector-palette .type-ice:hover,
+.type:hover .type-selector .type-ice,
+.type:hover .type-selector-palette .type-ice {
   background-color: #c9f3fd;
 }
 .type-selector .type-dragon,
@@ -279,7 +314,9 @@ section + section h3 {
   border: 5px solid #8b71ff;
 }
 .type-selector .type-dragon:hover,
-.type-selector-palette .type-dragon:hover {
+.type-selector-palette .type-dragon:hover,
+.type:hover .type-selector .type-dragon,
+.type:hover .type-selector-palette .type-dragon {
   background-color: #a08bff;
 }
 .type-selector .type-dark,
@@ -288,7 +325,9 @@ section + section h3 {
   border: 5px solid #8c6b48;
 }
 .type-selector .type-dark:hover,
-.type-selector-palette .type-dark:hover {
+.type-selector-palette .type-dark:hover,
+.type:hover .type-selector .type-dark,
+.type:hover .type-selector-palette .type-dark {
   background-color: #9d7851;
 }
 .type-selector .type-steel,
@@ -297,7 +336,9 @@ section + section h3 {
   border: 5px solid #c9c1c9;
 }
 .type-selector .type-steel:hover,
-.type-selector-palette .type-steel:hover {
+.type-selector-palette .type-steel:hover,
+.type:hover .type-selector .type-steel,
+.type:hover .type-selector-palette .type-steel {
   background-color: #d5cfd5;
 }
 .type-selector .type-fairy,
@@ -306,7 +347,9 @@ section + section h3 {
   border: 5px solid #f2a9f6;
 }
 .type-selector .type-fairy:hover,
-.type-selector-palette .type-fairy:hover {
+.type-selector-palette .type-fairy:hover,
+.type:hover .type-selector .type-fairy,
+.type:hover .type-selector-palette .type-fairy {
   background-color: #f5c0f8;
 }
 .type-selector .type-undefined,
@@ -315,12 +358,15 @@ section + section h3 {
   border: 5px solid #dddddd;
 }
 .type-selector .type-undefined:hover,
-.type-selector-palette .type-undefined:hover {
+.type-selector-palette .type-undefined:hover,
+.type:hover .type-selector .type-undefined,
+.type:hover .type-selector-palette .type-undefined {
   background-color: #eaeaea;
 }
 .type-selector-palette {
   margin-left: -15px;
   margin-right: -15px;
+  padding: 1em;
 }
 .type-selector-palette:before,
 .type-selector-palette:after {
