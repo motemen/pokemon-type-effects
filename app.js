@@ -21,6 +21,27 @@ var ALL_TYPE_NAMES = [
     'fairy'
 ];
 
+var TYPE_NAME_AS_JA = {
+    normal:   'ノーマル',
+    fire:     'ほのお',
+    water:    'みず',
+    electric: 'でんき',
+    grass:    'くさ',
+    ice:      'こおり',
+    psychic:  'エスパー',
+    fighting: 'かくとう',
+    poison:   'どく',
+    ground:   'じめん',
+    flying:   'ひこう',
+    bug:      'むし',
+    rock:     'いわ',
+    ghost:    'ゴースト',
+    dragon:   'ドラゴン',
+    dark:     'あく',
+    steel:    'はがね',
+    fairy:    'フェアリー'
+};
+
 var TYPE_NAME_TO_INDEX = (function () {
     var map = {};
     for (var i = 0, len = ALL_TYPE_NAMES.length; i < len; i++) {
@@ -139,4 +160,10 @@ pokemonTypeEffectsApp.filter('numberAsEffect', function () {
             return number;
         }
     };
+});
+
+pokemonTypeEffectsApp.filter('displayTypeName', function () {
+    return function (typeName) {
+        return TYPE_NAME_AS_JA[typeName] || typeName;
+    }
 });

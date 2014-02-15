@@ -23,6 +23,7 @@ body {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  margin-bottom: 0.5em;
 }
 @media (min-width: 992px) {
   #defender div[pokemon-type-selector] {
@@ -33,11 +34,12 @@ body {
 section + section h3 {
   margin-top: 1.5em;
 }
-#effects ul {
+#result #type-effects {
   margin-left: -15px;
   margin-right: -15px;
 }
-#effects li {
+#result .type {
+  border-left: 10px solid;
   padding: 10px;
   list-style: none;
   position: relative;
@@ -45,96 +47,87 @@ section + section h3 {
   padding-left: 15px;
   padding-right: 15px;
 }
+#result .type .effect {
+  position: absolute;
+  left: 85%;
+}
 @media (min-width: 992px) {
-  #effects li {
+  #result .type {
     float: left;
-    width: 58.33333333%;
+    width: 66.66666667%;
   }
 }
-#effects .type {
-  border-left: 10px solid;
-}
-#effects .type-normal {
+#result .type-normal {
   border-color: #c5c0a6;
   background-color: #f1f0ea;
 }
-#effects .type-grass {
+#result .type-grass {
   border-color: #a5d839;
   background-color: #d0ea97;
 }
-#effects .type-fire {
+#result .type-fire {
   border-color: #ee4e32;
   background-color: #f7a79a;
 }
-#effects .type-water {
+#result .type-water {
   border-color: #71aaff;
   background-color: #e1edff;
 }
-#effects .type-fighting {
+#result .type-fighting {
   border-color: #b85f3b;
   background-color: #d9a18a;
 }
-#effects .type-flying {
+#result .type-flying {
   border-color: #88a6ff;
   background-color: #f8faff;
 }
-#effects .type-poison {
+#result .type-poison {
   border-color: #a75d9d;
   background-color: #cea6c9;
 }
-#effects .type-ground {
+#result .type-ground {
   border-color: #f3ce42;
   background-color: #fae9ac;
 }
-#effects .type-rock {
+#result .type-rock {
   border-color: #d8bb67;
   background-color: #efe3c0;
 }
-#effects .type-bug {
+#result .type-bug {
   border-color: #ccd700;
   background-color: #f6ff48;
 }
-#effects .type-ghost {
+#result .type-ghost {
   border-color: #8379d0;
   background-color: #d0cced;
 }
-#effects .type-electric {
+#result .type-electric {
   border-color: #fae528;
   background-color: #fdf296;
 }
-#effects .type-psychic {
+#result .type-psychic {
   border-color: #e762af;
   background-color: #f6c3e1;
 }
-#effects .type-ice {
+#result .type-ice {
   border-color: #b0edfc;
   background-color: #ffffff;
 }
-#effects .type-dragon {
+#result .type-dragon {
   border-color: #8b71ff;
   background-color: #e7e1ff;
 }
-#effects .type-dark {
+#result .type-dark {
   border-color: #8c6b48;
   background-color: #c0a384;
 }
-#effects .type-steel {
+#result .type-steel {
   border-color: #c9c1c9;
   background-color: #fdfdfd;
 }
-#effects .type-fairy {
+#result .type-fairy {
   border-color: #f2a9f6;
   background-color: #ffffff;
-}
-#effects .type-name {
-  font-weight: bold;
-}
-#effects li {
-  position: relative;
-}
-#effects li .effect {
-  position: absolute;
-  left: 85%;
 }
 .type-selector .type-selector-button,
 .type-selector-palette .type-selector-button {
@@ -364,8 +357,6 @@ section + section h3 {
   background-color: #eaeaea;
 }
 .type-selector-palette {
-  margin-left: -15px;
-  margin-right: -15px;
   padding: 1em;
 }
 .type-selector-palette:before,
@@ -377,14 +368,6 @@ section + section h3 {
   clear: both;
 }
 .type-selector-palette .type {
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-@media (min-width: 992px) {
-  .type-selector-palette .type {
-    float: left;
-    width: 33.33333333%;
-  }
+  width: 50%;
+  float: left;
 }
