@@ -40,6 +40,7 @@ body {
 
     div[pokemon-type-selector] {
         .make-md-column(4);
+        margin-bottom: 0.5em;
     }
 }
 
@@ -47,19 +48,24 @@ section + section h3 {
     margin-top: 1.5em;
 }
 
-#effects {
-    ul {
+#result {
+    #type-effects {
         .make-row;
-    }
-
-    li {
-        padding: 10px;
-        list-style: none;
-        .make-md-column(7);
     }
 
     .type {
         border-left: 10px solid;
+
+        position: relative;
+
+        .effect {
+            position: absolute;
+            left: 85%;
+        }
+
+        padding: 10px;
+        list-style: none;
+        .make-md-column(8);
 
         .loop (@i) when (@i < length(@type-names)) {
             @type-name: extract(@type-names, @i+1);
@@ -74,18 +80,6 @@ section + section h3 {
         }
 
         .loop (0);
-    }
-
-    .type-name {
-        // font-weight: bold;
-    }
-
-    li {
-        position: relative;
-        .effect {
-            position: absolute;
-            left: 85%;
-        }
     }
 }
 
@@ -129,12 +123,11 @@ section + section h3 {
 }
 
 .type-selector-palette {
-    .make-row;
+    padding: 1em;
     .clearfix;
 
-    padding: 1em;
-
     .type {
-        .make-md-column(4);
+        width: 50%;
+        float: left;
     }
 }
