@@ -14,20 +14,33 @@
 <body>
   <div ng-controller="MainCtrl">
     <section id="defender">
-      <h3>Select enemy pokemon types</h3>
+      <h3>相手ポケモンのタイプ</h3>
       <div id="defender-types">
         <div pokemon-type-selector ng-repeat="i in [0,1]" selected-type="defenderTypes[i]"></div>
       </div>
     </section>
     <section id="effects">
-      <h3>Attack effectiveness of each types</h3>
+      <h3>わざのタイプ別効果倍率</h3>
       <ul>
         <li ng-repeat="te in allEffects()" ng-if="te.effect !== 1" class="type type-{{te.typeName}}">
-          <span class="type-name">{{te.typeName}}</span>
+          <span class="type-name">{{te.typeName | displayTypeName }}</span>
           <span class="effect">&#x00D7; {{te.effect | numberAsEffect}}</span>
         </li>
       </ul>
     </section>
   </div>
+  <script type="text/ng-template" id="type_selector.html">
+    <div class="type-selector">
+      <div class="type-selector-button type type-{{selectedType || 'undefined'}}" ng-click="togglePalette()">{{selectedType || '-' | displayTypeName}}</div>
+    </div>
+  </script>
+  <script type="text/ng-template" id="type_palette.html">
+    <div class="type-selector-palette">
+      <span class="type" ng-repeat="typeName in allTypes" ng-click="selectType(typeName)">
+        <span class="type-mark type-{{typeName}}">&nbsp;</span>
+        {{typeName | displayTypeName}}
+      </span>
+    </div>
+  </script>
 </body>
 </html>
