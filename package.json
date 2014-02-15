@@ -8,6 +8,7 @@
     "protractor": "~0.17.0",
     "gulp": "~3.5.2",
     "gulp-util": "~2.2.14",
-    "gulp-less": "~1.2.1"
+    "gulp-less": "~1.2.1",
+    "ecstatic": "~0.4.13"
   }
 }
