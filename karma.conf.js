@@ -1,11 +1,11 @@
 // Karma configuration
-// Generated on Sun Feb 09 2014 01:22:51 GMT+0900 (JST)
+// Generated on Sun Feb 16 2014 16:31:37 GMT+0900 (JST)
 
 module.exports = function(config) {
   config.set({
 
     // base path, that will be used to resolve files and exclude
-    basePath: '..',
+    basePath: '',
 
 
     // frameworks to use
@@ -14,18 +14,18 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'components/angular-1.2.12/angular.js',
-      'components/angular-1.2.12/angular-*.js',
-      'js/*.js',
-      'test/**/*.js'
+        'http://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js',
+        'http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.min.js',
+        'http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js',
+        'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-mocks.js',
+        'app/*.js',
+        'test/**/*.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-      'components/angular-1.2.12/angular-loader.js',
-      'components/angular-1.2.12/*.min.js',
-      'components/angular-1.2.12/angular-scenario.js'
+      
     ],
 
 
@@ -44,7 +44,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_INFO,
 
 
     // enable / disable watching file and executing tests whenever any file changes
@@ -60,7 +60,6 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
     browsers: ['Chrome'],
-
 
     // If browser does not capture in given timeout [ms], kill it
     captureTimeout: 60000,
