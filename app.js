@@ -1,5 +1,11 @@
 var pokemonTypeEffectsApp = angular.module('pokemonTypeEffectsApp', [ 'ui.bootstrap' ]);
 
+pokemonTypeEffectsApp.config([ '$locationProvider',
+    function ($locationProvider) {
+        $locationProvider.html5Mode(true);
+    }
+]);
+
 var ALL_TYPE_NAMES = [
     'normal',
     'fire',
@@ -125,19 +131,57 @@ pokemonTypeEffectsApp.controller('TypeSelectorCtrl', [ '$scope', '$modalInstance
     }
 ]);
 
-pokemonTypeEffectsApp.directive('pokemonTypeSelector', function ($modal) {
-    function link (scope, element, attr) {
-        scope.allTypes = ALL_TYPE_NAMES;
+pokemonTypeEffectsApp.factory('typeSelector', [ '$rootScope', '$modal', '$location',
+    function ($rootScope, $modal, $location) {
+        var typeSelector = {
+            modalInstance: null
+        };
 
-        scope.togglePalette = function () {
-            var typeSelectorModalInstance = $modal.open({
+        $rootScope.$watch(function () {
+            return $location.hash();
+        }, function (newHash) {
+            if (newHash === '') {
+                if (typeSelector.modalInstance) {
+                    typeSelector.modalInstance.dismiss();
+                }
+            }
+        });
+
+        typeSelector.showPalette = function () {
+            if (typeSelector.modalInstance) return null;
+
+            typeSelector.modalInstance = $modal.open({
                 templateUrl: 'type_palette.html',
                 controller: 'TypeSelectorCtrl'
             });
 
-            typeSelectorModalInstance.result.then(function (typeName) {
-                scope.selectedType = typeName;
+            $location.hash('palette');
+
+            var result = typeSelector.modalInstance.result;
+
+            result['finally'](function () {
+                $location.hash(null);
+                typeSelector.modalInstance = null;
             });
+
+            return result;
+        };
+
+        return typeSelector;
+    }
+]);
+
+pokemonTypeEffectsApp.directive('pokemonTypeSelector', function ($modal, typeSelector, $location) {
+    function link (scope, element, attr) {
+        scope.allTypes = ALL_TYPE_NAMES;
+
+        scope.togglePalette = function () {
+            var result = typeSelector.showPalette();
+            if (result) {
+                result.then(function (typeName) {
+                    scope.selectedType = typeName;
+                });
+            }
         };
     };
 
