@@ -89,12 +89,9 @@ pokemonTypeEffectsApp.factory('defs', function () {
 
 pokemonTypeEffectsApp.factory('typeEffectsCalculator', [ 'defs',
     function (defs) {
-        var __cache = {};
-
         return {
             calcEffects: function (defTypeNames) {
-                if (__cache[defTypeNames]) return __cache[defTypeNames];
-                return __cache[defTypeNames] = defs.ALL_TYPE_NAMES.map(function (attTypeName) {
+                return defs.ALL_TYPE_NAMES.map(function (attTypeName) {
                     var attIndex = defs.TYPE_NAME_TO_INDEX[attTypeName];
                     var defIndexes = defTypeNames.map(function (n) { return defs.TYPE_NAME_TO_INDEX[n] });
 
@@ -116,15 +113,17 @@ pokemonTypeEffectsApp.factory('typeEffectsCalculator', [ 'defs',
     }
 ]);
 
-pokemonTypeEffectsApp.controller('MainCtrl', [ '$scope', 'typeEffectsCalculator', 'defs',
-    function ($scope, typeEffectsCalculator, defs) {
-        $scope.allTypes = defs.ALL_TYPE_NAMES;
+pokemonTypeEffectsApp.controller('MainCtrl', [ '$scope', 'typeEffectsCalculator',
+    function ($scope, typeEffectsCalculator) {
         $scope.defenderTypes = [ 'normal', undefined ];
-        $scope.allEffects = function () {
-            return typeEffectsCalculator.calcEffects($scope.defenderTypes)
-        };
+
         $scope.$watch('defenderTypes[0]', function () {
             $scope.defenderTypes[1] = undefined;
+            $scope.allEffects = typeEffectsCalculator.calcEffects($scope.defenderTypes);
+        });
+
+        $scope.$watch('defenderTypes[1]', function () {
+            $scope.allEffects = typeEffectsCalculator.calcEffects($scope.defenderTypes);
         });
     }
 ]);

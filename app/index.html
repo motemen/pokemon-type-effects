@@ -22,7 +22,7 @@
     <section id="result">
       <h3>わざのタイプ別効果倍率</h3>
       <div id="type-effetcs">
-        <div ng-repeat="te in allEffects()" ng-if="te.effect !== 1" class="type type-{{te.typeName}}">
+        <div ng-repeat="te in allEffects" ng-if="te.effect !== 1" class="type type-{{te.typeName}}">
           <span class="type-name">{{te.typeName | displayTypeName }}</span>
           <span class="effect">&#x00D7; {{te.effect | numberAsEffect}}</span>
         </div>

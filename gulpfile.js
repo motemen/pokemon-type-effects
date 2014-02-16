@@ -14,14 +14,14 @@ gulp.task('watch', function () {
 
 gulp.task('server', function () {
     http.createServer(
-        ecstatic({ root: __dirname })
+        ecstatic({ root: path.join(__dirname, 'app') })
     ).listen(9999);
 });
 
 gulp.task('less', function () {
-  gulp.src('*.less')
+  gulp.src('app/*.less')
     .pipe(less({
       paths: [ path.join(__dirname, 'components', 'bootstrap', 'less') ]
     }))
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('app'));
 });
