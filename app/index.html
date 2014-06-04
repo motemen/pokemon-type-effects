@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="app.css">
 </head>
-<body>
+<body style="max-width: 900px">
   <div ng-controller="MainCtrl">
     <section id="defender">
       <h3>相手ポケモンのタイプ</h3>
@@ -27,6 +27,7 @@
           <span class="type-name">{{te.typeName | displayTypeName }}</span>
           <span class="effect">&#x00D7; {{te.effect | numberAsEffect}}</span>
         </div>
+        <br style="clear: both">
       </div>
     </section>
   </div>
@@ -52,5 +53,17 @@
     ga('create', 'UA-34276254-4', 'motemen.github.io');
     ga('send', 'pageview');
   </script>
+  <div id="ad" style="width: 100%; margin-top: 1em">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- pokemon-type-effects-bottom -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4031405268309770"
+         data-ad-slot="1116752821"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 </body>
 </html>
