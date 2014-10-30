@@ -21,7 +21,7 @@ gulp.task('server', function () {
 gulp.task('less', function () {
   gulp.src('app/*.less')
     .pipe(less({
-      paths: [ path.join(__dirname, 'components', 'bootstrap', 'less') ]
+      // paths: [ path.join(__dirname, 'components', 'bootstrap', 'less') ]
     }))
     .pipe(gulp.dest('app'));
 });
