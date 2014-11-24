@@ -234,8 +234,8 @@ pokemonTypeEffectsApp.filter('displayTypeName', [ 'defs',
   }
 ]);
 
-pokemonTypeEffectsApp.directive('tweetButton', [ '$location', '$timeout',
-  function ($location, $timeout) {
+pokemonTypeEffectsApp.directive('tweetButton', [ '$location', '$timeout', 'defs',
+  function ($location, $timeout, defs) {
     return {
       link: function (scope, element, attr) {
         var render = function () {
@@ -245,6 +245,10 @@ pokemonTypeEffectsApp.directive('tweetButton', [ '$location', '$timeout',
 
           element.empty();
 
+          var text = scope.defenderTypes.map(function (t) {
+            return defs.TYPE_NAME_AS_JA[t];
+          }).filter(function (n) { return n }).join('／') + 'タイプに対するわざの相性';
+
           twttr.widgets.createShareButton(
             $location.absUrl(),
             element[0],
@@ -252,6 +256,7 @@ pokemonTypeEffectsApp.directive('tweetButton', [ '$location', '$timeout',
               count:   'none',
               size:    'large',
               lang:    'ja',
+              text:    text,
               related: 'motemen',
               hashtags: 'ポケモン'
             }
