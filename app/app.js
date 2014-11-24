@@ -113,18 +113,30 @@ pokemonTypeEffectsApp.factory('typeEffectsCalculator', [ 'defs',
     }
 ]);
 
-pokemonTypeEffectsApp.controller('MainCtrl', [ '$scope', 'typeEffectsCalculator',
-    function ($scope, typeEffectsCalculator) {
-        $scope.defenderTypes = [ 'normal', undefined ];
+pokemonTypeEffectsApp.controller('MainCtrl', [ '$scope', '$location', 'typeEffectsCalculator', 'defs',
+    function ($scope, $location, typeEffectsCalculator, defs) {
+        var locDefenderTypes = $location.search().d;
+        if (locDefenderTypes) {
+            var dt = locDefenderTypes.split(/,/);
+            if (dt.length === 1 || dt[1] === '') dt[1] = undefined;
+            if (dt.length === 2 && dt[0] in defs.TYPE_NAME_TO_INDEX && (!dt[1] || dt[1] in defs.TYPE_NAME_TO_INDEX)) {
+                $scope.defenderTypes = dt;
+            }
+        }
 
-        $scope.$watch('defenderTypes[0]', function () {
-            $scope.defenderTypes[1] = undefined;
-            $scope.allEffects = typeEffectsCalculator.calcEffects($scope.defenderTypes);
-        });
+        if (!$scope.defenderTypes) {
+            $scope.defenderTypes = [ 'normal', undefined ];
+        }
 
-        $scope.$watch('defenderTypes[1]', function () {
+        $scope.$watch('defenderTypes', function (newValue, oldValue) {
+            if (newValue[1] === oldValue[1] && newValue[0] !== oldValue[0]) {
+                $scope.defenderTypes[1] = undefined;
+            }
+
             $scope.allEffects = typeEffectsCalculator.calcEffects($scope.defenderTypes);
-        });
+
+            $location.search('d', $scope.defenderTypes.join(',').replace(/,$/, ''));
+        }, true);
     }
 ]);
 
