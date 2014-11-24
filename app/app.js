@@ -233,3 +233,40 @@ pokemonTypeEffectsApp.filter('displayTypeName', [ 'defs',
         }
     }
 ]);
+
+pokemonTypeEffectsApp.directive('tweetButton', [ '$location', '$timeout',
+    function ($location, $timeout) {
+        return {
+          link: function (scope, element, attr) {
+            var render = function () {
+              if (typeof twttr === 'undefined') {
+                return $timeout(render, 10, false);
+              }
+
+              element.empty();
+
+              twttr.widgets.createShareButton(
+                $location.absUrl(),
+                element[0],
+                {
+                  count:   'none',
+                  size:    'large',
+                  lang:    'ja',
+                  related: 'motemen',
+                  hashtags: 'ポケモン'
+                }
+              ).then(function (el) {
+                console.log("Button created.")
+              }, function (e) { console.error(e) });
+            };
+
+            scope.$watch(function () {
+              return $location.absUrl().replace(/#.*/, '');
+            }, function (u) {
+              console.log(u);
+              render();
+            });
+          }
+        };
+    }
+]);
