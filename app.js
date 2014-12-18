@@ -137,6 +137,16 @@ pokemonTypeEffectsApp.controller('MainCtrl', [ '$scope', '$location', 'typeEffec
 
       $location.search('d', $scope.defenderTypes.join(',').replace(/,$/, ''));
     }, true);
+
+    $scope.$watch(function () {
+      return $location.search().d;
+    }, function (locDefenderTypes) {
+      var dt = locDefenderTypes.split(/,/);
+      if (dt.length === 1 || dt[1] === '') dt[1] = undefined;
+      if (dt.length === 2 && dt[0] in defs.TYPE_NAME_TO_INDEX && (!dt[1] || dt[1] in defs.TYPE_NAME_TO_INDEX)) {
+        $scope.defenderTypes = dt;
+      }
+    });
   }
 ]);
 
@@ -233,6 +243,21 @@ pokemonTypeEffectsApp.filter('displayTypeName', [ 'defs',
     }
   }
 ]);
+
+pokemonTypeEffectsApp.directive('pokemonSetType', function () {
+  function link (scope, element, attr) {
+    var types = attr.pokemonSetType.split(/,/);
+    element.on('click', function (ev) {
+      scope.defenderTypes = types;
+      ev.preventDefault();
+      scope.$apply();
+    });
+  }
+
+  return {
+    link: link
+  };
+});
 
 pokemonTypeEffectsApp.directive('tweetButton', [ '$location', '$timeout', 'defs',
   function ($location, $timeout, defs) {
