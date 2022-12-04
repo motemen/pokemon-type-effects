@@ -1,5 +1,6 @@
 <script lang="ts">
   import Dialog from "@smui/dialog";
+  import TweetButton from "./TweetButton.svelte";
 
   let defenderTypes: [number, number | null] = [0, null];
 
@@ -161,22 +162,12 @@
 
     <section class="w-full">
       <h1 class="text-xl py-2 mt-5 mb-1">結果をツイートする</h1>
-      <a
-        href="https://twitter.com/intent/tweet"
-        class="twitter-share-button"
-        data-size="large"
-        data-lang="ja"
-        data-hashtags="ポケモン"
-        data-text="{defenderTypes
+      <TweetButton
+        text={`${defenderTypes
           .map((type) => TYPE_NAME_AS_JA[TYPES[type]])
           .filter((x) => x)
-          .join('／')}タイプに対するわざの相性"
-        data-show-count="false">Tweet</a
-      ><script
-        async
-        src="https://platform.twitter.com/widgets.js"
-        charset="utf-8"
-      ></script>
+          .join("／")}タイプに対するわざの相性`}
+      />
     </section>
   </div>
 </main>
