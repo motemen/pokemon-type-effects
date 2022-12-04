@@ -146,6 +146,24 @@
       </div>
     </Dialog>
 
+    <div id="ad" class="w-full -mx-4 mt-4">
+      <script
+        async
+        src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      ></script>
+      <!-- pokemon-type-effects-bottom -->
+      <ins
+        class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4031405268309770"
+        data-ad-slot="1116752821"
+        data-ad-format="auto"
+      />
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
     <section class="w-full mt-4">
       <h1 class="text-xl py-2 mt-3 mb-1">わざのタイプ別効果倍率</h1>
       {#each effectRatios as { ratio, type }}
